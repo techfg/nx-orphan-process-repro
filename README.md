@@ -5,6 +5,7 @@ Minimal reproduction for orphaned child processes when stopping continuous tasks
 ## Prerequisites
 
 1. **Go v1.26.1** - <https://go.dev/doc/install>
+2. macOS - Problem does not happen on Windows/WSL/Ubuntu (unable to test pure linux environment)
 
 ## Reproduction Steps
 
