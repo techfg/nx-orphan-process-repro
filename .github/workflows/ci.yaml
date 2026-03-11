@@ -1,7 +1,8 @@
 name: CI
 
 jobs:
-  some_job:
+  placeholder_job:
     name: Placeholder job
-    run: |
-      echo "This is just a placeholder to satisfy nx sharedGlobals"
+    steps:
+      - name: Placeholder step
+        run: echo "This is just a placeholder to satisfy nx sharedGlobals"
