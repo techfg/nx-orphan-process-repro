@@ -1,0 +1,52 @@
+{
+  "name": "platform",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/platform",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "go build -o {args.outputPath} main.go",
+        "cwd": "{projectRoot}",
+        "outputPath": "../../dist/platform/platform"
+      },
+      "inputs": ["golang", "default", "^production", "sharedGlobals"],
+      "outputs": ["{options.outputPath}"]
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "continuous": true,
+      "options": {
+        "command": "../../dist/platform/platform serve",
+        "cwd": "{projectRoot}"
+      },
+      "dependsOn": [
+        "build",
+        { "projects": "tag:type:platform-dep", "target": "build" }
+      ]
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "continuous": true,
+      "options": {
+        "command": "bash ./scripts/dev.sh",
+        "cwd": "{projectRoot}"
+      },
+      "dependsOn": [
+        "build",
+        { "projects": "tag:type:platform-dep", "target": "build" },
+        "start-deps"
+      ]
+    },    
+    "start-deps": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.yaml up -d --wait",
+        "cwd": "{workspaceRoot}"
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": []
+}

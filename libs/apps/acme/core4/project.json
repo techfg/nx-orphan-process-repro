@@ -1,0 +1,21 @@
+{
+  "name": "apps-acme-core4",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/apps/acme/core4/src",
+  "projectType": "library",
+  "generators": {},
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "inputs": ["default", "^production"],
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "commands": ["../../../../dist/cli/cli pack"],
+        "cwd": "libs/apps/acme/core4"
+      },
+      "dependsOn": ["^build"]
+    }
+  },
+  "tags": ["type:platform-dep"],
+  "implicitDependencies": ["cli", "ui"]
+}

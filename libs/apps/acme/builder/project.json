@@ -1,0 +1,23 @@
+{
+  "name": "apps-acme-builder",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/apps/acme/builder/src",
+  "projectType": "library",
+  "generators": {},
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "commands": [
+          "../../../../dist/cli/cli pack",
+          "node ./build/generate-tailwind-classes-index.js"
+        ],
+        "cwd": "libs/apps/acme/builder"
+      },
+      "dependsOn": ["^build"]
+    }
+  },
+  "tags": ["type:platform-dep"],
+  "implicitDependencies": ["cli", "ui"]
+}

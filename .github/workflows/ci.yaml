@@ -1,0 +1,7 @@
+name: CI
+
+jobs:
+  some_job:
+    name: Placeholder job
+    run: |
+      echo "This is just a placeholder to satisfy nx sharedGlobals"

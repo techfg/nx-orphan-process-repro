@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "@nx-orphan-process-repro/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "type": "module",
+  "files": [],
+  "scripts": {
+    "dev": "nx run platform:dev",
+    "start": "npm run dev",
+    "clean": "rm -rf dist; nx reset"
+  },
+  "devDependencies": {
+    "ajv": "^8.18.0",
+    "css-tree": "^3.2.1",
+    "esbuild": "^0.27.3",
+    "monaco-editor": "^0.50.0",
+    "nx": "22.5.4",
+    "ts-json-schema-generator": "^2.9.0"
+  },
+  "nx": {}
+}

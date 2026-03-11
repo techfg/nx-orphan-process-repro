@@ -1,0 +1,19 @@
+{
+  "name": "vendor",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/vendor/src",
+  "projectType": "library",
+  "generators": {},
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "inputs": ["default", "^production"],
+      "outputs": ["{workspaceRoot}/dist/vendor"],
+      "options": {
+        "cwd": "{projectRoot}",
+        "commands": ["bash ./vendor.sh"]
+      }
+    }
+  },
+  "tags": ["type:platform-dep"]
+}
