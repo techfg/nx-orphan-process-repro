@@ -22,8 +22,7 @@
         "cwd": "{projectRoot}"
       },
       "dependsOn": [
-        "build",
-        { "projects": "tag:type:platform-dep", "target": "build" }
+        "build"
       ]
     },
     "dev": {
@@ -34,17 +33,8 @@
         "cwd": "{projectRoot}"
       },
       "dependsOn": [
-        "build",
-        { "projects": "tag:type:platform-dep", "target": "build" },
-        "start-deps"
+        "build"
       ]
-    },    
-    "start-deps": {
-      "executor": "nx:run-commands",
-      "options": {
-        "command": "docker compose -f docker-compose.yaml up -d --wait",
-        "cwd": "{workspaceRoot}"
-      }
     }
   },
   "tags": [],
