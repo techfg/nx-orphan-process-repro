@@ -11,7 +11,7 @@
     "clean": "rm -rf dist; nx reset"
   },
   "devDependencies": {
-    "nx": "22.5.4"
+    "nx": "22.7.0-pr.33655.12b0dd7"
   },
   "nx": {}
 }
