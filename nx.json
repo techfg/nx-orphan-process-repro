@@ -1,11 +1,16 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default"
     ],
-    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yaml"],
+    "sharedGlobals": [
+      "{workspaceRoot}/.github/workflows/ci.yaml"
+    ],
     "golang": [
       "{projectRoot}/go.mod",
       "{projectRoot}/go.sum",
@@ -16,5 +21,6 @@
     "build": {
       "cache": true
     }
-  }  
+  },
+  "analytics": false
 }
